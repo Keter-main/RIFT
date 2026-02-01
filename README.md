@@ -330,7 +330,7 @@ flutter run
 
 ### Download APK
 
-📥 **[Download Quark APK v0.1.0](https://github.com/Keter-main/RIFT/releases/download/v0.1.0/quark-v0.1.0.apk)**
+📥 **[Download Quark APK](https://github.com/Keter-main/RIFT/releases/download/Apk/Quark.apk)**
 
 1. Download the APK file
 2. Enable "Install from Unknown Sources"
