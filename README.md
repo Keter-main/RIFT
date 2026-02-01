@@ -7,10 +7,9 @@
 ## Table of Contents
 
 - [Overview](#overview)
-- [Key Features](#key-features)
 - [Screenshots](#screenshots)
+- [Key Features](#key-features)
 - [Technology Stack](#technology-stack)
-- [Cloud Services](#cloud-services)
 - [System Architecture](#system-architecture)
 - [Project Structure](#project-structure)
 - [Installation & Setup](#installation--setup)
@@ -23,9 +22,9 @@
 
 Quark is a comprehensive Flutter-based mobile application that serves as an AI-powered study companion for engineering students. The app integrates conversational AI, automated exam paper generation, document summarization, and code debugging into a single, beautifully designed interface.
 
-Built with modern technologies including Flutter 3.9, Firebase, and Groq AI, Quark demonstrates proficiency in cross-platform mobile development, cloud integration, AI/ML API consumption, and user-centric design following Material Design 3 guidelines.
+Built with Flutter 3.9, Firebase, and Groq AI, Quark demonstrates proficiency in cross-platform mobile development, cloud integration, AI/ML API consumption, and Material Design 3.
 
-### Highlights
+### Project Highlights
 
 | Metric | Value |
 |--------|-------|
@@ -33,66 +32,12 @@ Built with modern technologies including Flutter 3.9, Firebase, and Groq AI, Qua
 | Controllers | 6 |
 | Data Models | 2 |
 | Reusable Widgets | 4 |
-| Source Code Size | ~200 KB |
+| Source Code | ~200 KB |
 | Dependencies | 14 |
 
 ---
 
-## Key Features
-
-### 🤖 AI Chat Assistant
-Conversational interface powered by Groq's GPT-OSS-120B model with five specialized modes:
-- **General**: Open-ended academic discussions
-- **Summarize**: Condense lengthy content instantly
-- **Translate**: Multi-language translation
-- **Grammar**: Writing and grammar assistance
-- **Explain**: Complex concept breakdown
-
-### 📝 Exam Paper Generator
-Automated question paper generation following SPPU 2019 pattern:
-- Courses: Computer Engineering, IT, AI & Data Science
-- Year-wise subject selection (2nd, 3rd, 4th Year)
-- Upload syllabus PDFs for context-aware generation
-- Configurable marks, duration, and paper title
-
-### 📄 Document Summarizer
-AI-powered document analysis using Mixtral-8x7B:
-- Supports PDF, DOC, DOCX, TXT files
-- Key point extraction
-- Instant summarization
-
-### 💻 Code Assistant
-Programming help and debugging:
-- Multi-language support
-- Syntax error detection and fixes
-- Code optimization suggestions
-- Step-by-step logic explanations
-
-### 📊 Study Analytics Dashboard
-- Daily prompt usage tracking (20/day limit)
-- Study streak monitoring with visual indicators
-- Recent chats quick access
-- Progress visualization with circular gauges
-
-### 🎨 Modern UI/UX
-- Material Design 3 implementation
-- System/Light/Dark theme support
-- Google Fonts integration
-- Smooth animations and transitions
-- Responsive layouts
-
----
-
 ## Screenshots
-
-> **How to add screenshots:**
-> 1. Create a folder called `screenshots` in your project root
-> 2. Save your screenshots with these exact names:
->    - `dashboard.png`
->    - `tools.png`
->    - `saved.png`
->    - `account.png`
->    - `exam_generator.png`
 
 | Dashboard | Tools | Saved |
 |-----------|-------|-------|
@@ -104,22 +49,79 @@ Programming help and debugging:
 
 ---
 
+## Key Features
+
+### 🤖 AI Chat Assistant
+
+Conversational interface powered by Groq's GPT-OSS-120B model with five specialized modes:
+
+| Mode | Description |
+|------|-------------|
+| General | Open-ended academic discussions |
+| Summarize | Condense lengthy content instantly |
+| Translate | Multi-language translation |
+| Grammar | Writing and grammar assistance |
+| Explain | Complex concept breakdown |
+
+### 📝 Exam Paper Generator
+
+Automated question paper generation following SPPU 2019 pattern:
+
+- **Courses**: Computer Engineering, IT, AI & Data Science
+- **Years**: 2nd, 3rd, 4th Year subject selection
+- **Upload**: Syllabus PDFs for context-aware generation
+- **Configure**: Custom marks, duration, and paper title
+
+### 📄 Document Summarizer
+
+AI-powered document analysis using Mixtral-8x7B:
+
+- Supports PDF, DOC, DOCX, TXT files
+- Key point extraction
+- Instant summarization
+
+### 💻 Code Assistant
+
+Programming help and debugging:
+
+- Multi-language support
+- Syntax error detection and fixes
+- Code optimization suggestions
+- Step-by-step logic explanations
+
+### 📊 Study Analytics Dashboard
+
+- Daily prompt usage tracking (20/day limit)
+- Study streak monitoring with visual indicators
+- Recent chats quick access
+- Progress visualization with circular gauges
+
+### 🎨 Modern UI/UX
+
+- Material Design 3 implementation
+- System/Light/Dark theme support
+- Google Fonts integration
+- Smooth animations and transitions
+- Responsive layouts for all screen sizes
+
+---
+
 ## Technology Stack
 
 ### Core Framework
 
 | Technology | Version | Description |
 |------------|---------|-------------|
-| Flutter | 3.9+ | Google's cross-platform UI toolkit |
-| Dart | 3.9.2+ | Programming language for Flutter |
+| Flutter | 3.9+ | Cross-platform UI toolkit |
+| Dart | 3.9.2+ | Programming language |
 
-### Firebase Suite
+### Firebase Services
 
 | Service | Package | Description |
 |---------|---------|-------------|
-| Authentication | `firebase_auth` ^6.1.0 | Email/password user authentication |
-| Realtime Database | `firebase_database` ^12.0.2 | Cloud data synchronization |
-| Storage | `firebase_storage` ^13.0.2 | Profile picture storage |
+| Authentication | `firebase_auth` ^6.1.0 | Email/password login |
+| Realtime Database | `firebase_database` ^12.0.2 | Cloud data sync |
+| Storage | `firebase_storage` ^13.0.2 | Profile pictures |
 | Core | `firebase_core` ^4.1.1 | Firebase initialization |
 
 ### Local Storage
@@ -136,7 +138,7 @@ Programming help and debugging:
 | Groq | GPT-OSS-120B | Chat completions, paper generation |
 | Groq | Mixtral-8x7B | Document summarization |
 
-### UI/UX Libraries
+### UI Libraries
 
 | Package | Version | Description |
 |---------|---------|-------------|
@@ -147,17 +149,6 @@ Programming help and debugging:
 | `file_picker` | ^10.3.3 | Document upload |
 | `image_picker` | ^1.2.0 | Camera/gallery selection |
 | `intl` | ^0.20.2 | Date/time formatting |
-
----
-
-## Cloud Services
-
-| Service | Purpose | Features Used |
-|---------|---------|---------------|
-| **Firebase Auth** | User identity | Sign-up, login, logout, password reset |
-| **Firebase Database** | Cloud sync | User profiles, usage statistics |
-| **Firebase Storage** | Media storage | Profile picture uploads |
-| **Groq API** | AI inference | Chat completions, summarization |
 
 ---
 
@@ -182,6 +173,16 @@ Quark follows the **Model-View-Controller (MVC)** architectural pattern:
 │  SQLite │ SharedPreferences     │  Firebase │ Groq API       │
 └─────────────────────────────────────────────────────────────┘
 ```
+
+### Layer Responsibilities
+
+| Layer | Responsibility |
+|-------|----------------|
+| **View** | UI screens, user interaction, navigation |
+| **Controller** | Business logic, API calls, database operations |
+| **Model** | Data structures, serialization |
+| **Persistence** | Local storage for offline access |
+| **Cloud** | Authentication, sync, AI inference |
 
 ---
 
@@ -211,12 +212,19 @@ quark/
 │   │   ├── chat_screen.dart
 │   │   ├── exam_customizer.dart
 │   │   ├── tools_screen.dart
-│   │   └── ... (12 more screens)
+│   │   ├── saved_chat_screen.dart
+│   │   ├── account_section_screen.dart
+│   │   ├── profile_page.dart
+│   │   ├── settings_page.dart
+│   │   ├── document_summarizer_screen.dart
+│   │   ├── code_assisstant_screen.dart
+│   │   └── ... (6 more screens)
 │   │
 │   ├── Widgets/                     # Components (4 files)
 │   │   ├── custom_drawer.dart
 │   │   ├── chat_popup.dart
-│   │   └── ...
+│   │   ├── chat_history_drawer.dart
+│   │   └── quark_logo.dart
 │   │
 │   └── Settings/                    # Config (2 files)
 │       ├── theme_data.dart
@@ -234,95 +242,57 @@ quark/
 
 ### Prerequisites
 
-Before running this project, ensure you have the following installed:
+| Requirement | Download |
+|-------------|----------|
+| Flutter SDK 3.9+ | [flutter.dev/docs/get-started/install](https://flutter.dev/docs/get-started/install) |
+| Android Studio | [developer.android.com/studio](https://developer.android.com/studio) |
+| Git | [git-scm.com/downloads](https://git-scm.com/downloads) |
 
-| Requirement | Version | Download Link |
-|-------------|---------|---------------|
-| Flutter SDK | 3.9+ | [flutter.dev/docs/get-started/install](https://flutter.dev/docs/get-started/install) |
-| Android Studio | Latest | [developer.android.com/studio](https://developer.android.com/studio) |
-| Git | Latest | [git-scm.com/downloads](https://git-scm.com/downloads) |
-
-### Step 1: Install Flutter
+### Install Flutter
 
 **Windows:**
 ```bash
 # Download Flutter SDK from flutter.dev
 # Extract to C:\flutter
-# Add C:\flutter\bin to PATH environment variable
-
-# Verify installation
+# Add C:\flutter\bin to PATH
 flutter doctor
 ```
 
 **macOS:**
 ```bash
-# Using Homebrew
 brew install flutter
-
-# Or download manually from flutter.dev
-# Extract and add to PATH in ~/.zshrc:
-export PATH="$PATH:[PATH_TO_FLUTTER]/flutter/bin"
-
-# Verify installation
+# Or download manually and add to PATH
 flutter doctor
 ```
 
 **Linux:**
 ```bash
-# Download Flutter SDK
-cd ~
-git clone https://github.com/flutter/flutter.git -b stable
-
-# Add to PATH in ~/.bashrc or ~/.zshrc
+git clone https://github.com/flutter/flutter.git -b stable ~/flutter
 export PATH="$PATH:$HOME/flutter/bin"
-
-# Apply changes
-source ~/.bashrc
-
-# Verify installation
 flutter doctor
 ```
 
-### Step 2: Verify Installation
-
-Run `flutter doctor` and ensure all checks pass:
+### Clone & Run
 
 ```bash
-flutter doctor
-```
-
-Expected output:
-```
-[✓] Flutter (Channel stable, 3.x.x)
-[✓] Android toolchain
-[✓] Android Studio
-[✓] Connected device
-```
-
-### Step 3: Clone and Run
-
-```bash
-# Clone the repository
+# Clone repository
 git clone https://github.com/Keter-main/quark.git
 cd quark
 
 # Install dependencies
 flutter pub get
 
-# Run on connected device or emulator
+# Run on device/emulator
 flutter run
 ```
 
-### Step 4: Download APK (Alternative)
-
-If you prefer to directly install without building:
+### Download APK
 
 📥 **[Download Quark APK v0.1.0](https://github.com/Keter-main/quark/releases/download/v0.1.0/quark-v0.1.0.apk)**
 
 1. Download the APK file
-2. Enable "Install from Unknown Sources" in device settings
-3. Install and launch the app
-4. Create your account and start exploring!
+2. Enable "Install from Unknown Sources"
+3. Install and create your account
 
 ---
 
@@ -331,10 +301,10 @@ If you prefer to directly install without building:
 | Feature | Description |
 |---------|-------------|
 | **Voice Assistant** | Hands-free voice commands for accessibility |
-| **Offline AI** | On-device LLM for complete offline functionality |
+| **Offline AI** | On-device LLM for complete offline mode |
 | **Collaborative Study** | Shared study rooms and group features |
-| **Smart Notifications** | AI-powered study reminders based on patterns |
-| **Multi-language** | Regional language support for wider reach |
+| **Smart Notifications** | AI-powered study reminders |
+| **Multi-language** | Regional language support |
 | **Handwriting OCR** | Scan and digitize handwritten notes |
 
 ---
