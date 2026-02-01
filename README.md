@@ -41,11 +41,11 @@ Built with Flutter 3.9, Firebase, and Groq AI, Quark demonstrates proficiency in
 
 | Dashboard | Tools | Saved |
 |-----------|-------|-------|
-| ![Dashboard](screenshots/dashboard.jpg) | ![Tools](screenshots/tools.jpg) | ![Saved](screenshots/saved.jpg) |
+| ![Dashboard](screenshots/dashboard.jpeg) | ![Tools](screenshots/tools.jpeg) | ![Saved](screenshots/saved.jpeg) |
 
 | Chat | Account | Exam Generator |
 |------|---------|----------------|
-| ![Chat](screenshots/chat.jpg) | ![Account](screenshots/account.jpg) | ![Exam Generator](screenshots/exam_generator.jpg) |
+| ![Chat](screenshots/chat.jpeg) | ![Account](screenshots/account.jpeg) | ![Exam Generator](screenshots/exam_generator.jpeg) |
 
 ---
 
