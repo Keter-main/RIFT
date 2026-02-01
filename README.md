@@ -87,17 +87,20 @@ Programming help and debugging:
 
 > **How to add screenshots:**
 > 1. Create a folder called `screenshots` in your project root
-> 2. Take screenshots from your device/emulator
-> 3. Save them as `dashboard.png`, `chat.png`, `tools.png`, `exam.png`
-> 4. Replace the placeholder paths below with your actual image paths
+> 2. Save your screenshots with these exact names:
+>    - `dashboard.png`
+>    - `tools.png`
+>    - `saved.png`
+>    - `account.png`
+>    - `exam_generator.png`
 
-| Dashboard | AI Chat |
-|-----------|---------|
-| ![Dashboard](screenshots/dashboard.png) | ![Chat](screenshots/chat.png) |
+| Dashboard | Tools | Saved |
+|-----------|-------|-------|
+| ![Dashboard](screenshots/dashboard.png) | ![Tools](screenshots/tools.png) | ![Saved](screenshots/saved.png) |
 
-| Tools | Exam Generator |
-|-------|----------------|
-| ![Tools](screenshots/tools.png) | ![Exam](screenshots/exam.png) |
+| Account | Exam Generator |
+|---------|----------------|
+| ![Account](screenshots/account.png) | ![Exam Generator](screenshots/exam_generator.png) |
 
 ---
 
