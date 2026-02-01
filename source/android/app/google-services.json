@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "852326781913",
+    "project_id": "quark-3b74e",
+    "storage_bucket": "quark-3b74e.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:852326781913:android:1c5e62dbbd9bee78b77fc8",
+        "android_client_info": {
+          "package_name": "com.example.superx"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBOjKIdTLdqwoao1BPzrV1pQBPXrcBhX4s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

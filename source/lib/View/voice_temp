@@ -1,0 +1,279 @@
+// lib/voice_assistant/voice_assistant_view.dart
+
+import 'dart:math';
+import 'package:flutter/material.dart';
+
+// Enum to manage the different states of the voice assistant
+enum AssistantState {
+  idle,
+  listening,
+  thinking,
+  talking,
+}
+
+class VoiceAssistantView extends StatefulWidget {
+  const VoiceAssistantView({super.key});
+
+  @override
+  State<VoiceAssistantView> createState() => _VoiceAssistantViewState();
+}
+
+class _VoiceAssistantViewState extends State<VoiceAssistantView>
+    with SingleTickerProviderStateMixin {
+  late AnimationController _animationController;
+  final TextEditingController _textController = TextEditingController();
+  AssistantState _currentState = AssistantState.idle;
+
+  @override
+  void initState() {
+    super.initState();
+    _animationController = AnimationController(
+      vsync: this,
+      duration: const Duration(seconds: 3), // Slightly longer for smoother new animation
+    )..repeat();
+  }
+
+  @override
+  void dispose() {
+    _animationController.dispose();
+    _textController.dispose();
+    super.dispose();
+  }
+
+  // A method to cycle through the states for demonstration purposes
+  void _cycleState() {
+    // Unfocus the text field when tapping the animation
+    FocusScope.of(context).unfocus();
+    setState(() {
+      final nextStateIndex = (_currentState.index + 1) % AssistantState.values.length;
+      _currentState = AssistantState.values[nextStateIndex];
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Padding(
+        padding: const EdgeInsets.all(16.0).copyWith(bottom: 24.0),
+        child: Column(
+          children: [
+            // The core animated visual takes up the available space
+            Expanded(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  GestureDetector(
+                    onTap: _cycleState,
+                    child: AnimatedBuilder(
+                      animation: _animationController,
+                      builder: (context, child) {
+                        return CustomPaint(
+                          size: const Size(220, 220), // Slightly larger
+                          painter: VoiceAssistantPainter(
+                            animationValue: _animationController.value,
+                            state: _currentState,
+                            primaryColor: Theme.of(context).colorScheme.primary,
+                          ),
+                        );
+                      },
+                    ),
+                  ),
+                  const SizedBox(height: 32),
+                  // Text label indicating the current state
+                  Text(
+                    _getLabelForState(_currentState),
+                    style: Theme.of(context).textTheme.titleLarge?.copyWith(
+                        color: Theme.of(context).colorScheme.primary.withOpacity(0.9)
+                    ),
+                  ),
+                ],
+              ),
+            ),
+
+            // Text input field at the bottom
+            _buildTextInput(),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _buildTextInput() {
+    return Material(
+      elevation: 5.0,
+      borderRadius: BorderRadius.circular(30.0),
+      color: Theme.of(context).colorScheme.surface,
+      shadowColor: Colors.black.withOpacity(0.2),
+      child: Row(
+        children: [
+          Expanded(
+            child: TextField(
+              controller: _textController,
+              style: TextStyle(color: Theme.of(context).textTheme.bodyLarge?.color),
+              decoration: InputDecoration(
+                contentPadding: const EdgeInsets.symmetric(horizontal: 20.0),
+                hintText: 'Or type a message...',
+                hintStyle: TextStyle(color: Theme.of(context).hintColor),
+                border: InputBorder.none,
+              ),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(4.0),
+            child: CircleAvatar(
+              radius: 22,
+              backgroundColor: Theme.of(context).colorScheme.primary,
+              child: IconButton(
+                icon: const Icon(Icons.send, color: Colors.white),
+                onPressed: () {
+                  // Handle text submission logic here
+                  FocusScope.of(context).unfocus();
+                },
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  String _getLabelForState(AssistantState state) {
+    switch (state) {
+      case AssistantState.idle:
+        return 'Tap to Start';
+      case AssistantState.listening:
+        return 'Listening...';
+      case AssistantState.thinking:
+        return 'Thinking...';
+      case AssistantState.talking:
+        return 'Answering...';
+    }
+  }
+}
+
+// Custom Painter to draw the animations
+class VoiceAssistantPainter extends CustomPainter {
+  final double animationValue;
+  final AssistantState state;
+  final Color primaryColor;
+
+  VoiceAssistantPainter({
+    required this.animationValue,
+    required this.state,
+    required this.primaryColor,
+  });
+
+  @override
+  void paint(Canvas canvas, Size size) {
+    final center = Offset(size.width / 2, size.height / 2);
+    final maxRadius = size.width / 2;
+
+    // Draw different visuals based on the state
+    switch (state) {
+      case AssistantState.idle:
+        _drawIdle(canvas, center, maxRadius);
+        break;
+      case AssistantState.listening:
+        _drawListening(canvas, center, maxRadius);
+        break;
+      case AssistantState.thinking:
+        _drawThinking(canvas, center, maxRadius);
+        break;
+      case AssistantState.talking:
+        _drawTalking(canvas, center, maxRadius);
+        break;
+    }
+  }
+
+  void _drawIdle(Canvas canvas, Offset center, double maxRadius) {
+    final paint = Paint()
+      ..color = primaryColor.withOpacity(0.1)
+      ..style = PaintingStyle.fill;
+    canvas.drawCircle(center, maxRadius, paint);
+
+    // Simple Mic Icon
+    final iconColor = primaryColor;
+    final icon = Icons.mic;
+    final textPainter = TextPainter(
+      text: TextSpan(
+        text: String.fromCharCode(icon.codePoint),
+        style: TextStyle(
+          fontSize: maxRadius * 0.8,
+          fontFamily: icon.fontFamily,
+          color: iconColor,
+        ),
+      ),
+      textDirection: TextDirection.ltr,
+    );
+    textPainter.layout();
+    textPainter.paint(canvas, center - Offset(textPainter.width / 2, textPainter.height / 2));
+  }
+
+  void _drawListening(Canvas canvas, Offset center, double maxRadius) {
+    final paint = Paint()
+      ..color = primaryColor
+      ..style = PaintingStyle.stroke;
+
+    for (int i = 0; i < 4; i++) {
+      final wave = (animationValue + (i * 0.25)) % 1.0;
+      final radius = maxRadius * wave;
+      paint.strokeWidth = 3.0;
+      paint.color = primaryColor.withOpacity(1.0 - (wave * wave));
+      canvas.drawCircle(center, radius, paint);
+    }
+     _drawIdle(canvas, center, maxRadius * 0.5);
+  }
+
+  void _drawThinking(Canvas canvas, Offset center, double maxRadius) {
+    final paint = Paint()..color = primaryColor;
+    final linePaint = Paint()
+        ..color = primaryColor.withOpacity(0.3)
+        ..strokeWidth = 1.5;
+
+    // Draw central orb
+    final corePulse = 0.5 * (sin(animationValue * 4 * pi) + 1); // 0 to 1
+    canvas.drawCircle(center, maxRadius * 0.2 + corePulse * 5, paint);
+
+    // Draw orbiting nodes
+    const nodeCount = 6;
+    for (int i = 0; i < nodeCount; i++) {
+        final angle = (i / nodeCount) * 2 * pi + (animationValue * 2 * pi * (i % 2 == 0 ? 0.5 : -0.5));
+        final distance = maxRadius * (0.6 + 0.2 * sin(animationValue * 2 * pi + i));
+
+        final nodePosition = center + Offset(cos(angle), sin(angle)) * distance;
+        
+        // Draw connecting lines
+        canvas.drawLine(center, nodePosition, linePaint);
+        // Draw nodes
+        canvas.drawCircle(nodePosition, maxRadius * 0.08, paint);
+    }
+  }
+
+  void _drawTalking(Canvas canvas, Offset center, double maxRadius) {
+    final paint = Paint()
+      ..color = primaryColor
+      ..strokeCap = StrokeCap.round;
+    final waveCount = 60;
+    
+    for (int i = 0; i < waveCount; i++) {
+      final angle = (i / waveCount) * 2 * pi;
+      final sineInput = angle * 8 + animationValue * 6 * pi;
+      final amplitude = maxRadius * 0.15 * (sin(sineInput) * 0.5 + 0.5) + (maxRadius * 0.1);
+      
+      final startRadius = maxRadius * 0.6;
+      final endRadius = startRadius + amplitude;
+
+      final startPoint = center + Offset(cos(angle), sin(angle)) * startRadius;
+      final endPoint = center + Offset(cos(angle), sin(angle)) * endRadius;
+
+      canvas.drawLine(startPoint, endPoint, paint..strokeWidth = 3.5);
+    }
+    // Draw solid core
+    canvas.drawCircle(center, maxRadius * 0.55, paint..style = PaintingStyle.fill);
+  }
+
+  @override
+  bool shouldRepaint(covariant CustomPainter oldDelegate) {
+    return true;
+  }
+}
