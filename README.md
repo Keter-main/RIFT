@@ -7,6 +7,8 @@
 ## Table of Contents
 
 - [Overview](#overview)
+- [Why Quark?](#why-quark)
+- [How Quark Helps](#how-quark-helps)
 - [Screenshots](#screenshots)
 - [Key Features](#key-features)
 - [Technology Stack](#technology-stack)
@@ -34,6 +36,34 @@ Built with Flutter 3.9, Firebase, and Groq AI, Quark demonstrates proficiency in
 | Reusable Widgets | 4 |
 | Source Code | ~200 KB |
 | Dependencies | 14 |
+
+---
+
+## Why Quark?
+
+Engineering students spend countless hours on repetitive tasks that drain their energy and time:
+
+🕐 **Hours wasted** creating practice papers that don't match university patterns  
+📚 **Pages and pages** of PDFs to read with no quick way to extract key points  
+🐛 **Debugging alone** at 2 AM with no one to explain what went wrong  
+🗂️ **App hopping** between 5 different tools just to study effectively  
+📉 **No tracking** of study habits, streaks, or daily progress  
+
+*What if one app could handle all of this?*
+
+---
+
+## How Quark Helps
+
+| Challenge | Quark's Answer |
+|-----------|----------------|
+| Creating practice papers | AI generates SPPU 2019 pattern papers instantly |
+| Reading lengthy documents | Upload PDFs and get AI-powered summaries |
+| Debugging code at midnight | Code Assistant explains errors step-by-step |
+| Switching between apps | 6 integrated tools in one beautiful interface |
+| Staying consistent | Study streak tracking with daily analytics |
+
+**One app. All your study needs. Powered by AI.**
 
 ---
 
@@ -158,19 +188,19 @@ Quark follows the **Model-View-Controller (MVC)** architectural pattern:
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
-│                        QUARK APP                             │
+│                        QUARK APP                            │
 ├─────────────────────────────────────────────────────────────┤
-│  VIEW LAYER (18 Screens)                                     │
+│  VIEW LAYER (18 Screens)                                    │
 │  Dashboard │ Chat │ Tools │ Profile │ Settings │ Exam       │
 ├─────────────────────────────────────────────────────────────┤
-│  CONTROLLER LAYER (6 Controllers)                            │
-│  AuthController │ DatabaseController │ GroqFunctions         │
+│  CONTROLLER LAYER (6 Controllers)                           │
+│  AuthController │ DatabaseController │ GroqFunctions        │
 ├─────────────────────────────────────────────────────────────┤
-│  MODEL LAYER (2 Models)                                      │
-│  UserModel │ ChatModel                                       │
+│  MODEL LAYER (2 Models)                                     │
+│  UserModel │ ChatModel                                      │
 ├─────────────────────────────────────────────────────────────┤
-│  PERSISTENCE                    │  CLOUD SERVICES            │
-│  SQLite │ SharedPreferences     │  Firebase │ Groq API       │
+│  PERSISTENCE                    │  CLOUD SERVICES           │
+│  SQLite │ SharedPreferences     │  Firebase │ Groq API      │
 └─────────────────────────────────────────────────────────────┘
 ```
 
@@ -276,8 +306,8 @@ flutter doctor
 
 ```bash
 # Clone repository
-git clone https://github.com/Keter-main/quark.git
-cd quark
+git clone https://github.com/Keter-main/RIFT.git
+cd RIFT/source
 
 # Install dependencies
 flutter pub get
@@ -286,9 +316,21 @@ flutter pub get
 flutter run
 ```
 
+### Configure Groq API Key
+
+1. Go to [Groq Console](https://console.groq.com/keys)
+2. Sign up or log in to your account
+3. Click **Create API Key**
+4. Copy the generated key
+5. Open `lib/Controller/groq_functions.dart`
+6. Paste your key:
+   ```dart
+   const String GROQ_API_KEY = 'your_api_key_here';
+   ```
+
 ### Download APK
 
-📥 **[Download Quark APK v0.1.0](https://github.com/Keter-main/quark/releases/download/v0.1.0/quark-v0.1.0.apk)**
+📥 **[Download Quark APK v0.1.0](https://github.com/Keter-main/RIFT/releases/download/v0.1.0/quark-v0.1.0.apk)**
 
 1. Download the APK file
 2. Enable "Install from Unknown Sources"
