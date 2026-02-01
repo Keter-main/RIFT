@@ -71,11 +71,11 @@ Engineering students spend countless hours on repetitive tasks that drain their 
 
 | Dashboard | Tools | Saved |
 |-----------|-------|-------|
-| ![Dashboard](screenshots/dashboard.jpeg) | ![Tools](screenshots/tools.jpeg) | ![Saved](screenshots/saved.jpeg) |
+| ![Dashboard](screenshots/dashboard.jpeg) | ![Tools](screenshots/tools.jpeg) | ![Saved Chats](screenshots/saved.jpeg) |
 
 | Chat | Account | Exam Generator |
 |------|---------|----------------|
-| ![Chat](screenshots/chat.jpeg) | ![Account](screenshots/account.jpeg) | ![Exam Generator](screenshots/exam_generator.jpeg) |
+| ![Chat](screenshots/chat.jpeg) | ![Profile](screenshots/account.jpeg) | ![Exam Generator](screenshots/exam_generator.jpeg) |
 
 ---
 
