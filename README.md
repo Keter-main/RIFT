@@ -153,19 +153,19 @@ Quark follows the **Model-View-Controller (MVC)** pattern:
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
-│                        QUARK APP                             │
+│                        QUARK APP                            │
 ├─────────────────────────────────────────────────────────────┤
-│  VIEW LAYER (18 Screens)                                     │
+│  VIEW LAYER (18 Screens)                                    │
 │  Dashboard │ Chat │ Tools │ Profile │ Settings │ ...        │
 ├─────────────────────────────────────────────────────────────┤
-│  CONTROLLER LAYER (6 Controllers)                            │
-│  AuthController │ DatabaseController │ GroqFunctions         │
+│  CONTROLLER LAYER (6 Controllers)                           │
+│  AuthController │ DatabaseController │ GroqFunctions        │
 ├─────────────────────────────────────────────────────────────┤
-│  MODEL LAYER                                                 │
-│  UserModel │ ChatModel                                       │
+│  MODEL LAYER                                                │
+│  UserModel │ ChatModel                                      │
 ├─────────────────────────────────────────────────────────────┤
-│  PERSISTENCE                    │  CLOUD SERVICES            │
-│  SQLite │ SharedPreferences     │  Firebase │ Groq API       │
+│  PERSISTENCE                    │  CLOUD SERVICES           │
+│  SQLite │ SharedPreferences     │  Firebase │ Groq API      │
 └─────────────────────────────────────────────────────────────┘
 ```
 
@@ -231,10 +231,9 @@ flutter run
 
 | | |
 |---|---|
-| **Name** | Your Name |
-| **Email** | your.email@example.com |
-| **GitHub** | [@yourusername](https://github.com/yourusername) |
-| **LinkedIn** | [Your Profile](https://linkedin.com/in/yourprofile) |
+| **Name** | Aryan Patil |
+| **Email** | aryanpatil5712@gmail.com |
+| **GitHub** | https://github.com/Keter-main |
 
 ---
 
